@@ -40,6 +40,7 @@ export default {
 </script>
 
 <style lang="less">
+@import url('../static/less/readme.less');
 @siderbar-width: 200px;
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -56,6 +57,10 @@ export default {
   }
   .hv-app-main {
     width: 100%;
+    box-sizing: border-box;
+    border-left: solid 1px #555;
+    padding: 20px 10px;
+    .reader();
   }
 }
 </style>

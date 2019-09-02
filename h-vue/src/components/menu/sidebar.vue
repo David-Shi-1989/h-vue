@@ -32,8 +32,6 @@ export default {
           icon: 'fa fa-shopping-cart',
           sub: [
             { title: '亚马逊', to: 'fa fa-amazon' }
-            // { title: '京东', to: 'icon iconfont iconweibiaoti--' },
-            // { title: '苏宁', to: 'icon iconfont iconsuning' }
           ]
         },
         {
@@ -161,6 +159,7 @@ export default {
   }
   .menu-1 {
     text-align: left;
+    list-style: none;
     i.fa {
       display: inline-block;
       width: 15px;
@@ -170,6 +169,7 @@ export default {
       text-align: center;
     }
     .menu-2 {
+      list-style: none;
       background-color: #262626;
       transition: height .3s;
     }
