@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 
 import '../static/less/style.less'
+import 'font-awesome/css/font-awesome.min.css'
+// import '../static/icon/iconfont.css'
 
 Vue.config.productionTip = false
 

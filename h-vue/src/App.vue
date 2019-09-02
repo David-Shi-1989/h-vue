@@ -1,22 +1,61 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div class="hv-app-sb">
+      <siderBar :menuData="sidebar.menu"></siderBar>
+    </div>
+    <div class="hv-app-main">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
+import siderBar from '@/components/menu/sidebar'
 export default {
-  name: 'App'
+  components: {siderBar},
+  data () {
+    return {
+      sidebar: {
+        menu: [
+          {
+            title: '菜单',
+            icon: 'fa fa-navicon',
+            sub: [
+              { title: '侧边栏', to: '/menu/side-bar' }
+            ]
+          },
+          {
+            title: '表单',
+            icon: 'fa fa-file-o',
+            sub: [
+              { title: '输入框' },
+              { title: '下拉框' }
+            ]
+          }
+        ]
+      }
+    }
+  }
 }
 </script>
 
 <style lang="less">
+@siderbar-width: 200px;
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .hv-app-sb {
+    width: @siderbar-width;
+    flex-shrink: 0;
+  }
+  .hv-app-main {
+    width: 100%;
+  }
 }
 </style>

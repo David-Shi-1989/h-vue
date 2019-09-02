@@ -1,17 +1,17 @@
 <template>
   <div class="sc-sidebar">
     <div class="logo"></div>
-    <div class="title">
+    <!-- <div class="title">
       <Icon type="logo-codepen" />
       <p>安全服务</p>
-    </div>
+    </div> -->
     <ul class="menu-1">
       <li v-for="(item1,idx1) in menuData" :key="`menu-1-${idx1}`" class="menu-item menu-item-1">
         <a class="menu-item-link-1" @click="onMenuItem1Click(item1)">
           <i :class="item1.icon"></i><span>{{item1.title}}</span>
-          <i v-if="item1.sub" :class="['ivu-icon', 'ivu-icon-ios-arrow-down', item1.open?'rotate-90':'']"></i>
+          <i v-if="item1.sub" :class="['fa', 'fa-angle-down', item1.open?'rotate-90':'']"></i>
         </a>
-        <ul v-if="item1.sub" class="menu-2" :style="{height: item1.open?(item1.sub.length*menuHeight)+'rem':'0', overflow: 'hidden'}">
+        <ul v-if="item1.sub" class="menu-2" :style="{height: item1.open?(item1.sub.length*menuHeight)+'px':'0', overflow: 'hidden'}">
           <li v-for="(item2,idx2) in item1.sub" :key="`menu-2-${idx2}`" class="menu-item menu-item-2">
             <a class="menu-item-link-2" :to="item2.to" :class="[item2.active?'active':'']" @click="onMenuItem2Click(item2)">{{item2.title}}</a>
           </li>
@@ -22,11 +22,35 @@
 </template>
 
 <script>
-export default{
+export default {
+  props: {
+    menuData: {
+      type: Array,
+      default: () => [
+        {
+          title: '电商',
+          icon: 'fa fa-shopping-cart',
+          sub: [
+            { title: '亚马逊', to: 'fa fa-amazon' }
+            // { title: '京东', to: 'icon iconfont iconweibiaoti--' },
+            // { title: '苏宁', to: 'icon iconfont iconsuning' }
+          ]
+        },
+        {
+          title: '社交',
+          icon: 'fa fa-fa',
+          sub: [
+            { title: '微信', to: 'fa fa-weixin' },
+            { title: '新浪微博', to: 'fa fa-weibo' },
+            { title: 'Facebook', to: 'fa fa-facebook' }
+          ]
+        }
+      ]
+    }
+  },
   data () {
     return {
-      menuData: this.$store.getters.getMenu,
-      menuHeight: 1.6
+      menuHeight: 32
     }
   },
   created () {
@@ -90,35 +114,35 @@ export default{
 </script>
 
 <style scoped lang="less">
-@menu-item-height: 1.6rem;
+@menu-item-height: 32px;
 .sc-sidebar {
   width: 100%;
   height: 100%;
   background-color: #31353c;
   color: #eaeef2;
-  font-size: 0.6rem;
+  font-size: 12px;
   border-radius: 0;
   .title {
     text-align: center;
-    padding: 1rem 0;
+    padding: 20px 0;
     i {
-      font-size: 2rem;
+      font-size: 40px;
     }
     p {
-      font-size: 0.75rem;
+      font-size: 15px;
     }
   }
   a {
     display: block;
     text-decoration: none;
     color: #fff;
-    padding: 0 .5rem;
+    padding: 0 10px;
     height: @menu-item-height;
     line-height: @menu-item-height;
     cursor: pointer;
     box-sizing: border-box;
     &.menu-item-link-1 {
-      i.ivu-icon-ios-arrow-down {
+      i.fa-angle-down {
         transition: all .2s;
         &.rotate-90 {
           transform: rotate(90deg);
@@ -126,7 +150,7 @@ export default{
       }
     }
     &.menu-item-link-2 {
-      padding: 0 0 0 1.75rem;
+      padding: 0 0 0 35px;
       &:hover {
         background-color: #888;
       }
@@ -137,12 +161,12 @@ export default{
   }
   .menu-1 {
     text-align: left;
-    i.ivu-icon {
+    i.fa {
       display: inline-block;
-      width: 0.75rem;
-      height: 0.75rem;
-      line-height: 0.75rem;
-      margin-right: .5rem;
+      width: 15px;
+      height: 15px;
+      line-height: 15px;
+      margin-right: 10px;
       text-align: center;
     }
     .menu-2 {
