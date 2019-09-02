@@ -31,6 +31,13 @@ export default {
               { title: '输入框' },
               { title: '下拉框' }
             ]
+          },
+          {
+            title: '数据',
+            icon: 'fa fa-database',
+            sub: [
+              { title: '表格', to: '/data/table' }
+            ]
           }
         ]
       }
