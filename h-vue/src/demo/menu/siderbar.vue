@@ -10,31 +10,29 @@
     </div>
     <h2>API</h2>
     <h3>props</h3>
-    <table class="hv-api-table">
-      <thead>
-        <tr>
-          <td style="width: 100px;">属性</td>
-          <td>说明</td>
-          <td style="width: 100px;">类型</td>
-          <td style="width: 100px;">默认值</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>mode</td>
-          <td>mode</td>
-          <td>mode</td>
-          <td>mode</td>
-        </tr>
-      </tbody>
-    </table>
+    <Table size="small" :column="table.column" :list="table.list"></Table>
   </div>
 </template>
 
 <script>
 import siderBar from '@/components/menu/sidebar'
 export default {
-  components: {siderBar}
+  components: {siderBar},
+  data () {
+    return {
+      table: {
+        column: [
+          { title: '属性', key: 'name' },
+          { title: '说明', key: 'desc' },
+          { title: '类型', key: 'type' },
+          { title: '默认值', key: 'default' }
+        ],
+        list: [
+          {name: 'name1', desc: 'desc1', type: 'type1', default: 'default1'}
+        ]
+      }
+    }
+  }
 }
 </script>
 
