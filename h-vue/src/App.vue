@@ -67,6 +67,8 @@ export default {
     box-sizing: border-box;
     border-left: solid 1px #555;
     padding: 20px 10px;
+    overflow-x:hidden;
+    overflow-y: auto;
     .reader();
   }
 }

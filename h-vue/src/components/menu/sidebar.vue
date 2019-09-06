@@ -31,16 +31,28 @@ export default {
           title: '电商',
           icon: 'fa fa-shopping-cart',
           sub: [
-            { title: '亚马逊', to: 'fa fa-amazon' }
+            { title: '亚马逊', icon: 'fa fa-amazon' },
+            { title: '淘宝', icon: 'fa fa-amazon' },
+            { title: '京东', icon: 'fa fa-amazon' },
+            { title: '苏宁', icon: 'fa fa-amazon' }
           ]
         },
         {
           title: '社交',
           icon: 'fa fa-fa',
           sub: [
-            { title: '微信', to: 'fa fa-weixin' },
-            { title: '新浪微博', to: 'fa fa-weibo' },
-            { title: 'Facebook', to: 'fa fa-facebook' }
+            { title: '微信', icon: 'fa fa-weixin' },
+            { title: '新浪微博', icon: 'fa fa-weibo' },
+            { title: 'Facebook', icon: 'fa fa-facebook' }
+          ]
+        },
+        {
+          title: '通信',
+          icon: 'fa fa-podcast',
+          sub: [
+            { title: '华为', icon: 'fa fa-weixin' },
+            { title: 'Cisco', icon: 'fa fa-weibo' },
+            { title: 'H3C', icon: 'fa fa-facebook' }
           ]
         }
       ]

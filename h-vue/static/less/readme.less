@@ -2,6 +2,17 @@
   background-color: #fff;
   color: #222;
   text-align: left;
+  h1 {
+    // border-left: 3px solid var(--color-light-primary);
+    background-color: var(--color-light-primary);
+    color: #fff;
+    padding-left: 10px;
+    margin: 0 0 20px 0;
+  }
+  h2 {
+    margin: 20px 0 5px 0;
+  }
+  /*demo block*/
   .hv-demo-block () {
     box-sizing: border-box;
     border: 1px solid #fff;
@@ -10,23 +21,8 @@
     height: 300px;
     .hv-demo-block();
   }
-  .hv-api-table {
-    border-collapse: collapse;
-    td {
-      font-size: 14px;
-      padding: 6px 8px;
-    }
-    thead {
-      font-weight: bolder;
-      td {
-        background: #eee;
-      }
-    }
-    tbody {
-      td {
-        border: 1px solid #ddd;
-        box-sizing: border-box;
-      }
-    }
+  .hv-demo-block-l {
+    height: 500px;
+    .hv-demo-block();
   }
 }
