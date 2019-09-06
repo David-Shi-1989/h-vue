@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <div class="hv-app-sb">
+    <div :class="['hv-app-sb',`hv-app-sb-${sidebar.isClose?'close':'open'}`]" :style="{width:sidebar.isClose?'0':'200px'}">
       <siderBar :menuData="sidebar.menu"></siderBar>
+      <div class="hv-app-sb-collapse" @click="onCollapseBtnClick" :title="sidebar.isClose?'展开':'收起'">
+        <i class="fa fa-angle-left"></i>
+      </div>
     </div>
     <div class="hv-app-main">
       <router-view/>
@@ -39,8 +42,14 @@ export default {
               { title: '表格', to: '/data/table' }
             ]
           }
-        ]
+        ],
+        isClose: false
       }
+    }
+  },
+  methods: {
+    onCollapseBtnClick () {
+      this.sidebar.isClose = !this.sidebar.isClose
     }
   }
 }
@@ -59,8 +68,36 @@ export default {
   height: 100%;
   display: flex;
   .hv-app-sb {
-    width: @siderbar-width;
     flex-shrink: 0;
+    position: relative;
+    transition: all .3s;
+    @icon-width: 25px;
+    .hv-app-sb-collapse {
+      position: absolute;
+      z-index: 999;
+      top: 200px;
+      font-size: 20px;
+      color: #333;
+      background-color: #f3f3f3;
+      width: @icon-width;
+      height: @icon-width;
+      line-height: @icon-width;
+      cursor: pointer;
+    }
+    &.hv-app-sb-close .hv-app-sb-collapse {
+      right: @icon-width*-1;
+      opacity: .7;
+      border-radius: 50%;
+      i.fa-angle-left {
+        transform: rotate(180deg)
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &.hv-app-sb-open .hv-app-sb-collapse {
+      right: -0;
+    }
   }
   .hv-app-main {
     width: 100%;

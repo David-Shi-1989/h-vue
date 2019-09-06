@@ -172,6 +172,7 @@ export default {
   .menu-1 {
     text-align: left;
     list-style: none;
+    overflow: hidden;
     i.fa {
       display: inline-block;
       width: 15px;
